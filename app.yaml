@@ -6,7 +6,9 @@ metadata:
 spec:
   project: my-project
   source:
-    repoURL: https://github.com/hatif007/argo-demo-repo.git
+    repoURL: https://stefanprodan.github.io/podinfo
+    chart: podinfo
+    targetRevision: 6.15.0
     path: .
   destination:
     server: https://kubernetes.default.svc
