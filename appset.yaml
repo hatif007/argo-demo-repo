@@ -1,8 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
+
 metadata:
   name: example-applicationset
   namespace: argocd
+
 spec:
   generators:
     - list:
@@ -11,23 +13,29 @@ spec:
             team: team-a
           - cluster: qa
             team: team-a
+
   template:
     metadata:
       name: '{{team}}-{{cluster}}'
+
     spec:
-      project:  my-project
+      project: my-project
+
       source:
         repoURL: https://github.com/hatif007/argo-demo-repo.git
         targetRevision: MAIN2
         path: my-project
         directory:
           include: 'team-a-{{cluster}}.yaml'
+
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{team}}-{{cluster}}'
+
       syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
-  syncOptions:
-    - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true
+
+        syncOptions:
+          - CreateNamespace=true
