@@ -18,3 +18,7 @@ spec:
 
   sourceNamespaces:
     - '*'
+
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace  
