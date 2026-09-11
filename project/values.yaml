@@ -1,0 +1,5 @@
+ingress:
+  enabled: false        # toggle
+  host: myapp.local
+  path: /
+  pathType: Prefix
