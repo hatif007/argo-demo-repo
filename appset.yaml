@@ -26,6 +26,8 @@ spec:
         server: https://kubernetes.default.svc
         namespace: '{{team}}-{{cluster}}'
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+  automated:
+    prune: true
+    selfHeal: true
+  syncOptions:
+    - CreateNamespace=true
