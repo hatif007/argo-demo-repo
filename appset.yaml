@@ -9,14 +9,14 @@ spec:
   generators:
     - list:
         elements:
-          - cluster: dev
+          - env: dev
             team: team-a
-          - cluster: qa
+          - env: qa
             team: team-a
 
   template:
     metadata:
-      name: '{{team}}-{{cluster}}'
+      name: '{{team}}-{{env}}'
 
     spec:
       project: my-project
@@ -26,11 +26,11 @@ spec:
         targetRevision: MAIN2
         path: my-project
         directory:
-          include: 'team-a-{{cluster}}.yaml'
+          include: 'team-a-{{env}}.yaml'
 
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{team}}-{{cluster}}'
+        namespace: '{{team}}-{{env}}'
 
       syncPolicy:
         automated:
