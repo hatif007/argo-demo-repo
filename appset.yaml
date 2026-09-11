@@ -21,7 +21,7 @@ spec:
         targetRevision: MAIN2
         path: my-project
         directory:
-          include: 'k8s-{{cluster}}.yaml'
+          include: 'team-a-{{cluster}}.yaml'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{team}}-{{cluster}}'
