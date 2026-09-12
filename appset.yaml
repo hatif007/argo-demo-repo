@@ -6,31 +6,31 @@ metadata:
   namespace: argocd
 
 spec:
+
   generators:
-    - list:
-        elements:
-          - env: dev
-            team: team-a
-          - env: qa
-            team: team-a
+    - git:
+        repoURL: https://github.com/hatif007/argo-demo-repo.git
+        revision: MAIN3
+
+        directories:
+          - path: '???'
 
   template:
+
     metadata:
-      name: '{{team}}-{{env}}'
+      name: '???'
 
     spec:
       project: my-project
 
       source:
         repoURL: https://github.com/hatif007/argo-demo-repo.git
-        targetRevision: MAIN2
-        path: my-project
-        directory:
-          include: 'team-a-{{env}}.yaml'
+        targetRevision: MAIN3
+        path: '???'
 
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{team}}-{{env}}'
+        namespace: '???'
 
       syncPolicy:
         automated:
