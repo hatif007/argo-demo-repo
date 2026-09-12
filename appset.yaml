@@ -6,6 +6,7 @@ metadata:
   namespace: argocd
 
 spec:
+  goTemplate: true
 
   generators:
     - git:
@@ -18,8 +19,7 @@ spec:
   template:
 
     metadata:
-      name: 'dynamic-{{team}}-{{env}}'
-      
+      name: 'dynamic-{{index .path.segments 1}}-{{index .path.segments 2}}'
 
     spec:
       project: my-project
@@ -27,11 +27,11 @@ spec:
       source:
         repoURL: https://github.com/hatif007/argo-demo-repo.git
         targetRevision: MAIN3
-        path: 'my-project/*/qa'
+        path: '{{.path.path}}'
 
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'dynamic-{{team}}-{{env}}'
+        namespace: 'dynamic-{{index .path.segments 1}}-{{index .path.segments 2}}'
 
       syncPolicy:
         automated:
