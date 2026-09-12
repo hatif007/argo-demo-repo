@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: color-deploy
+
+spec:
+  replicas: 4
+
+  selector:
+    matchLabels:
+      app: color
+
+  template:
+    metadata:
+      labels:
+        app: color
+
+    spec:
+      containers:
+        - name: color
+          image: elevy99927/color:elevy99927/color:green
+          ports:
+            - containerPort: 80
