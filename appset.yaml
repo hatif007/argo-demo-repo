@@ -18,7 +18,8 @@ spec:
   template:
 
     metadata:
-      name: 'my-project'
+      name: 'dynamic-{{team}}-{{env}}'
+      
 
     spec:
       project: my-project
@@ -26,11 +27,11 @@ spec:
       source:
         repoURL: https://github.com/hatif007/argo-demo-repo.git
         targetRevision: MAIN3
-        path: 'my-project/qa/*'
+        path: 'my-project/*/qa'
 
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'my-project/qa/*'
+        namespace: 'dynamic-{{team}}-{{env}}'
 
       syncPolicy:
         automated:
