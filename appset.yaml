@@ -13,12 +13,12 @@ spec:
         revision: MAIN3
 
         directories:
-          - path: '???'
+          - path: 'my-project/qa/*'
 
   template:
 
     metadata:
-      name: '???'
+      name: 'my-project'
 
     spec:
       project: my-project
@@ -26,11 +26,11 @@ spec:
       source:
         repoURL: https://github.com/hatif007/argo-demo-repo.git
         targetRevision: MAIN3
-        path: '???'
+        path: 'my-project/qa/*'
 
       destination:
         server: https://kubernetes.default.svc
-        namespace: '???'
+        namespace: 'my-project/qa/*'
 
       syncPolicy:
         automated:
