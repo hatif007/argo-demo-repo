@@ -20,6 +20,8 @@ spec:
 
     metadata:
       name: 'dynamic-{{index .path.segments 1}}-{{index .path.segments 2}}'
+      labels:
+        branch: MAIN3
 
     spec:
       project: my-project
